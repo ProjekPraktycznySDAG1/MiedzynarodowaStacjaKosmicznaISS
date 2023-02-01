@@ -1,24 +1,24 @@
 package org.SdaG1.model;
 
 
-public class ISSData {
-    public ISSDataPosition iss_position;
-    public long timestamp;
+public class IssData {
+    public IssDataPosition iss_position;
+    public String timestamp;
     public String message;
 
-    public ISSDataPosition getIss_position() {
+    public IssDataPosition getIss_position() {
         return iss_position;
     }
 
-    public void setIss_position(ISSDataPosition iss_position) {
+    public void setIss_position(IssDataPosition iss_position) {
         this.iss_position = iss_position;
     }
 
-    public long getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(long timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -39,12 +39,10 @@ public class ISSData {
                 '}';
     }
 
-    public ISSData(ISSDataPosition iss_position, long timestamp, String message) {
+
+    public IssData(IssDataPosition iss_position, String timestamp, String message) {
         this.iss_position = iss_position;
         this.timestamp = timestamp;
         this.message = message;
-
-
-
     }
 }

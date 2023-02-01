@@ -1,5 +1,7 @@
 package org.SdaG1.model;
 
+import java.util.List;
+
 public class PeopleInSpaceData {
     private int number;
     private List<People> peopleList;

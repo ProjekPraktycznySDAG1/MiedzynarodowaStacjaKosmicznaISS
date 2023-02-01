@@ -1,9 +1,13 @@
 package org.SdaG1.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class PeopleInSpaceData {
     private int number;
+
+    @SerializedName("people")
     private List<People> peopleList;
 
     public int getNumber() {

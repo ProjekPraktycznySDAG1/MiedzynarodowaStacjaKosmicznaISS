@@ -25,6 +25,6 @@ public class People {
         return "People{" +
                 "name='" + name + '\'' +
                 ", craft='" + craft + '\'' +
-                '}';
+                "} \n " ;
     }
 }

@@ -18,7 +18,7 @@ public class PeopleInSpaceService implements PeopleInSpaceInterface {
     }
 
     @Override
-    public List<People> showListOfPeopleInSpace() {
-        return null;
+    public List<People> showListOfPeopleInSpace() throws Exception {
+        return jsonSerializerService.peopleData().getPeopleList();
     }
 }

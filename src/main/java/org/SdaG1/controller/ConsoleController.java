@@ -8,6 +8,7 @@ import org.SdaG1.service.PeopleInSpaceService;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -44,7 +45,11 @@ public class ConsoleController {
                     break;
 
                 case 4:
-                    System.out.println("List of people in Space: " + peopleInSpaceService.showListOfPeopleInSpace());
+
+                    System.out.println("List of People in Space: \n");
+                    for (People people : peopleInSpaceService.showListOfPeopleInSpace()) {
+                        System.out.println(people.getName());
+                    }
                     break;
 
                 case 5:

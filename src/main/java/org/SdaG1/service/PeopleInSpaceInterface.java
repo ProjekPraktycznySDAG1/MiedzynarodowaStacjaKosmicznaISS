@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface PeopleInSpaceInterface {
     public int getAmountOfPeopleInSpace() throws Exception;
-    public List<People> showListOfPeopleInSpace();
+    public List<People> showListOfPeopleInSpace() throws Exception;
 }

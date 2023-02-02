@@ -30,15 +30,15 @@ public class JsonSerializerService {
         return call.execute();
     }
 
-    public String jsonString(String url) throws Exception {
+    public String retrieveJsonResponseFromUrl(String url) throws Exception {
         return getApiCallResponse(url).body().string();
     }
 
     public IssData issData() throws Exception {
-        return gson.fromJson(jsonString(ISS_DATA_URL), IssData.class);
+        return gson.fromJson(retrieveJsonResponseFromUrl(ISS_DATA_URL), IssData.class);
     }
 
     public PeopleInSpaceData peopleData() throws Exception {
-        return gson.fromJson(jsonString(PEOPLE_DATA_URL), PeopleInSpaceData.class);
+        return gson.fromJson(retrieveJsonResponseFromUrl(PEOPLE_DATA_URL), PeopleInSpaceData.class);
     }
 }

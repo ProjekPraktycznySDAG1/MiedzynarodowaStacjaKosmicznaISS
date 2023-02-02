@@ -3,14 +3,18 @@ package org.SdaG1.model;
 import javax.persistence.*;
 
 @Entity
+@Table (name = "people")
 public class People {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "people_id", nullable = false)
     private Long id;
-
     String name;
     String craft;
+
+    @ManyToOne
+    @JoinColumn(name = "people_data_id")
+    private PeopleInSpaceData peopleInSpaceData;
 
     public Long getId() {
         return id;

@@ -21,6 +21,7 @@ public class PeopleDataRepository implements IssRepository<PeopleInSpaceData>{
         sessionFactory = new Configuration()
                 .configure()
                 .addAnnotatedClass(PeopleInSpaceData.class)
+                .addAnnotatedClass(People.class)
                 .buildSessionFactory();
     }
 

@@ -6,24 +6,27 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "people_in_space_data")
 public class PeopleInSpaceData {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "people_data_id", nullable = false)
-    private Long id;
+    private Integer id;
 
     private int number;
 
-    @OneToMany
-    @JoinColumn(name = "people_id")
+    @OneToMany(mappedBy = "peopleInSpaceData", cascade = CascadeType.ALL)
     @SerializedName("people")
     private List<People> peopleList;
 
-    public Long getId() {
+    public PeopleInSpaceData() {
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

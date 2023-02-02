@@ -3,10 +3,10 @@ package org.SdaG1.model;
 import javax.persistence.*;
 
 @Entity
-public class IssDataPosition {
+public class IssPositionData {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
+    @Column(name = "iss_position_id", nullable = false)
     private Long id;
 
     private double latitude;

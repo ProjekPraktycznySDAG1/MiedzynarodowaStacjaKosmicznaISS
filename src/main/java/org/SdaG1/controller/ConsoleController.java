@@ -1,15 +1,10 @@
 package org.SdaG1.controller;
 
-import org.SdaG1.model.IssDataPosition;
 import org.SdaG1.model.People;
-import org.SdaG1.service.PeopleInSpaceInterface;
 import org.SdaG1.service.PeopleInSpaceService;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class ConsoleController {
@@ -41,6 +36,7 @@ public class ConsoleController {
                  //   calculateSpeed();
                     break;
                 case 3:
+                    peopleInSpaceService.savePeopleInSpaceDataIntoDb();
                     System.out.println("Amount of People in Space: " + peopleInSpaceService.getAmountOfPeopleInSpace());
                     break;
 

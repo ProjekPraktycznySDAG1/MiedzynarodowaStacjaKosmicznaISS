@@ -38,7 +38,7 @@ public class JsonSerializerService {
         return gson.fromJson(retrieveJsonResponseFromUrl(ISS_DATA_URL), IssData.class);
     }
 
-    public PeopleInSpaceData peopleData() throws Exception {
+    public PeopleInSpaceData peopleInSpaceData() throws Exception {
         return gson.fromJson(retrieveJsonResponseFromUrl(PEOPLE_DATA_URL), PeopleInSpaceData.class);
     }
 }

@@ -1,6 +1,6 @@
 package org.SdaG1.service;
 
-import org.SdaG1.model.IssDataPosition;
+import org.SdaG1.model.IssPositionData;
 
 public class IssDataService implements IssDataServiceInterface{
 
@@ -11,7 +11,7 @@ public class IssDataService implements IssDataServiceInterface{
     }
 
     @Override
-    public IssDataPosition showCurrentIssLocation() {
+    public IssPositionData showCurrentIssLocation() {
         return null;
     }
 

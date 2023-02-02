@@ -1,11 +1,11 @@
 package org.SdaG1.service;
 
-import org.SdaG1.model.IssDataPosition;
+import org.SdaG1.model.IssPositionData;
 
 public interface IssDataServiceInterface {
     public double calculateSpeed();
 
-    public IssDataPosition showCurrentIssLocation();
+    public IssPositionData showCurrentIssLocation();
     public void save();
 
 

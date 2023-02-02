@@ -3,6 +3,7 @@ package org.SdaG1.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "people")
 public class IssPositionData {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

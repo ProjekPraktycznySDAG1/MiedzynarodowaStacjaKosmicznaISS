@@ -22,7 +22,6 @@ public class PeopleInSpaceService implements PeopleInSpaceInterface {
 
     public void saveIssLocationDataIntoDb() throws Exception {
         peopleDataRepository.save(jsonSerializerService.getIssDataObjectFromJson());
-        System.out.println(jsonSerializerService.getIssDataObjectFromJson());
     }
 
     @Override

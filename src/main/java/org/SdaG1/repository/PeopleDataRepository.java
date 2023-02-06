@@ -36,6 +36,7 @@ public class PeopleDataRepository implements IssRepository<PeopleInSpaceData>{
         Transaction transaction = null;
         try (Session session = sessionFactory.getCurrentSession()) { // try-with-resources - umieszczamy tu zasoby "zamykalne" - implementujące "Closable()" - nie trzeba juz zamykac sesji
             transaction = session.beginTransaction();
+            System.out.println(peopleInspaceData);
             session.save(peopleInspaceData);
             transaction.commit();
 
@@ -52,6 +53,7 @@ public class PeopleDataRepository implements IssRepository<PeopleInSpaceData>{
         Transaction transaction = null;
         try (Session session = sessionFactory.getCurrentSession()) { // try-with-resources - umieszczamy tu zasoby "zamykalne" - implementujące "Closable()" - nie trzeba juz zamykac sesji
             transaction = session.beginTransaction();
+            System.out.println(issData.getCoordinates());
             session.save(issData);
             transaction.commit();
 

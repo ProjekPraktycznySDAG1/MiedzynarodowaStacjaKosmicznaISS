@@ -9,19 +9,21 @@ import javax.persistence.*;
 public class IssData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "issData_id", nullable = false)
+    @Column(name = "iss_data_id", nullable = false)
     private Long id;
-
-    @OneToOne(mappedBy = "issData")
-    @JoinColumn(name = "coord_id")
+    public int timestamp;
+    @OneToOne(mappedBy = "issData", cascade = CascadeType.ALL)
     @SerializedName("iss_position")
     public Coordinates coordinates;
-    public String timestamp;
-    public String message;
 
-
-    public IssData() {
+    public Coordinates getCoordinates() {
+        return coordinates;
     }
+
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
+    }
+
     public Long getId() {
         return id;
     }
@@ -38,35 +40,20 @@ public class IssData {
         this.coordinates = iss_position;
     }
 
-    public String getTimestamp() {
+    public int getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(String timestamp) {
+    public void setTimestamp(int timestamp) {
         this.timestamp = timestamp;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 
     @Override
     public String toString() {
-        return "ISSData{" +
-                "iss_position=" + coordinates +
-                ", timestamp=" + timestamp +
-                ", message='" + message + '\'' +
+        return "IssData{" +
+                "id=" + id +
+                ", timestamp='" + timestamp + '\'' +
+                ", coordinates=" + coordinates +
                 '}';
-    }
-
-
-    public IssData(Coordinates iss_position, String timestamp, String message) {
-        this.coordinates = iss_position;
-        this.timestamp = timestamp;
-        this.message = message;
     }
 }

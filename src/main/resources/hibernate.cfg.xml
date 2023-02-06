@@ -7,7 +7,7 @@
         <property name="hbm2ddl.auto">update</property>
         <!-- JDBC Database connection settings -->
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/iss_information_db_v4</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/iss_information_db_v5</property>
         <!--        ?useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true-->
         <property name="connection.username">root</property>
         <property name="connection.password">jakubowy22</property>

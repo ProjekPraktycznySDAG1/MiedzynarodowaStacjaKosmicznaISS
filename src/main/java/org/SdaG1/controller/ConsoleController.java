@@ -41,7 +41,8 @@ public class ConsoleController {
                     System.out.println(issDataService.showCurrentIssLocation());
                     break;
                 case 2:
-                    System.out.println("Average speed for the last 5 seconds is: " + issDataService.calculateSpeed() + " km/h");
+                    System.out.println("Average speed for the last 5 seconds is: " +
+                            String.format("%.2f", issDataService.calculateSpeed()) + " km/h");
 
                     break;
                 case 3:
@@ -60,8 +61,9 @@ public class ConsoleController {
                 case 5:
                     running = false;
                     break;
-
-
+                case 6:
+                    peopleInSpaceService.saveIssLocationDataIntoDb();
+                    break;
             }
         }
     }

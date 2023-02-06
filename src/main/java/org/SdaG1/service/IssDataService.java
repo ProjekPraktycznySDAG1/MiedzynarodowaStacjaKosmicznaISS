@@ -1,6 +1,6 @@
 package org.SdaG1.service;
 
-import org.SdaG1.model.IssPositionData;
+import org.SdaG1.model.Coordinates;
 import org.SdaG1.utils.JsonSerializer;
 
 public class IssDataService implements IssDataServiceInterface {
@@ -13,9 +13,9 @@ public class IssDataService implements IssDataServiceInterface {
 
     @Override
     public double calculateSpeed() throws Exception {
-        IssPositionData issDataPointA = jsonSerializerService.getIssDataObjectFromJson().getIss_position();
+        Coordinates issDataPointA = jsonSerializerService.getIssDataObjectFromJson().getIss_position();
         Thread.sleep(5000);
-        IssPositionData issDataPointB = jsonSerializerService.getIssDataObjectFromJson().getIss_position();
+        Coordinates issDataPointB = jsonSerializerService.getIssDataObjectFromJson().getIss_position();
         double latA = issDataPointA.getLatitude(), lonA = issDataPointA.getLongitude(),
                 latB = issDataPointB.getLatitude(), lonB = issDataPointB.getLongitude();
         return getDistanceBetweenTwoPointsInKm(latA, lonA, latB, lonB) / 5 * 3600;
@@ -32,7 +32,7 @@ public class IssDataService implements IssDataServiceInterface {
     }
 
     @Override
-    public IssPositionData showCurrentIssLocation() throws Exception {
+    public Coordinates showCurrentIssLocation() throws Exception {
         return jsonSerializerService.getIssDataObjectFromJson().getIss_position();
     }
 

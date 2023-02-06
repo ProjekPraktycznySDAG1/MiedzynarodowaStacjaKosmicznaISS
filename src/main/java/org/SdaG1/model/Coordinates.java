@@ -3,15 +3,25 @@ package org.SdaG1.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "people")
-public class IssPositionData {
+@Table(name = "coordinates")
+public class Coordinates {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "iss_position_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "coord_id", nullable = false)
     private Long id;
 
     private double latitude;
     private double longitude;
+    @OneToOne
+    private IssData issData;
+
+    public IssData getIssData() {
+        return issData;
+    }
+
+    public void setIssData(IssData issData) {
+        this.issData = issData;
+    }
 
     public Long getId() {
         return id;

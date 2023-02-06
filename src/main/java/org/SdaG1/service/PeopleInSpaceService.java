@@ -20,6 +20,11 @@ public class PeopleInSpaceService implements PeopleInSpaceInterface {
         peopleDataRepository.save(jsonSerializerService.getPeopleInSpaceDataObjectFromJson());
     }
 
+    public void saveIssLocationDataIntoDb() throws Exception {
+        peopleDataRepository.save(jsonSerializerService.getIssDataObjectFromJson());
+        System.out.println(jsonSerializerService.getIssDataObjectFromJson());
+    }
+
     @Override
     public int getAmountOfPeopleInSpace() throws Exception {
        return jsonSerializerService.getPeopleInSpaceDataObjectFromJson().getNumber();

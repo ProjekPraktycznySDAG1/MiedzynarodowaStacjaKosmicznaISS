@@ -1,5 +1,7 @@
 package org.SdaG1.repository;
 
+import org.SdaG1.model.Coordinates;
+import org.SdaG1.model.IssData;
 import org.SdaG1.model.People;
 import org.SdaG1.model.PeopleInSpaceData;
 import org.SdaG1.utils.JsonSerializer;
@@ -24,6 +26,8 @@ public class PeopleDataRepository implements IssRepository<PeopleInSpaceData>{
                 .configure()
                 .addAnnotatedClass(PeopleInSpaceData.class)
                 .addAnnotatedClass(People.class)
+                .addAnnotatedClass(IssData.class)
+                .addAnnotatedClass(Coordinates.class)
                 .buildSessionFactory();
     }
 
@@ -33,6 +37,22 @@ public class PeopleDataRepository implements IssRepository<PeopleInSpaceData>{
         try (Session session = sessionFactory.getCurrentSession()) { // try-with-resources - umieszczamy tu zasoby "zamykalne" - implementujące "Closable()" - nie trzeba juz zamykac sesji
             transaction = session.beginTransaction();
             session.save(peopleInspaceData);
+            transaction.commit();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (transaction!=null){
+                transaction.rollback();
+            }
+        }
+    }
+
+
+    public void save(IssData issData) {
+        Transaction transaction = null;
+        try (Session session = sessionFactory.getCurrentSession()) { // try-with-resources - umieszczamy tu zasoby "zamykalne" - implementujące "Closable()" - nie trzeba juz zamykac sesji
+            transaction = session.beginTransaction();
+            session.save(issData);
             transaction.commit();
 
         } catch (Exception e) {

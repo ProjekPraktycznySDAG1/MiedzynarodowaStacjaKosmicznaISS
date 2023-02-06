@@ -12,7 +12,5 @@ public class Main {
 
         ConsoleController controller = new ConsoleController();
         controller.showMenuOptions();
-
-
     }
 }

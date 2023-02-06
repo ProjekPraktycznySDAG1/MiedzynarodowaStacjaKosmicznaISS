@@ -1,17 +1,21 @@
 package org.SdaG1.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import javax.persistence.*;
 
 @Entity
+@Table(name = "iss_position_data")
 public class IssData {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "issData_id", nullable = false)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "iss_position_id")
-    public IssPositionData iss_position;
+    @OneToOne(mappedBy = "issData")
+    @JoinColumn(name = "coord_id")
+    @SerializedName("iss_position")
+    public Coordinates coordinates;
     public String timestamp;
     public String message;
 
@@ -26,12 +30,12 @@ public class IssData {
         this.id = id;
     }
 
-    public IssPositionData getIss_position() {
-        return iss_position;
+    public Coordinates getIss_position() {
+        return coordinates;
     }
 
-    public void setIss_position(IssPositionData iss_position) {
-        this.iss_position = iss_position;
+    public void setIss_position(Coordinates iss_position) {
+        this.coordinates = iss_position;
     }
 
     public String getTimestamp() {
@@ -53,15 +57,15 @@ public class IssData {
     @Override
     public String toString() {
         return "ISSData{" +
-                "iss_position=" + iss_position +
+                "iss_position=" + coordinates +
                 ", timestamp=" + timestamp +
                 ", message='" + message + '\'' +
                 '}';
     }
 
 
-    public IssData(IssPositionData iss_position, String timestamp, String message) {
-        this.iss_position = iss_position;
+    public IssData(Coordinates iss_position, String timestamp, String message) {
+        this.coordinates = iss_position;
         this.timestamp = timestamp;
         this.message = message;
     }

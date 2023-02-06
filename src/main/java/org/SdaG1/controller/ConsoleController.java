@@ -1,7 +1,9 @@
 package org.SdaG1.controller;
 
 import org.SdaG1.model.People;
+import org.SdaG1.model.PeopleInSpaceData;
 import org.SdaG1.service.PeopleInSpaceService;
+import org.hibernate.exception.ConstraintViolationException;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -30,10 +32,12 @@ public class ConsoleController {
 
             switch (choice) {
                 case 1:
-                 //   showCurrentIssLocation();
+                    //   showCurrentIssLocation();
                     break;
                 case 2:
-                 //   calculateSpeed();
+                    //   calculateSpeed();
+
+                    peopleInSpaceService.checkIfPersonExistsInDb(new PeopleInSpaceData());
                     break;
                 case 3:
                     peopleInSpaceService.savePeopleInSpaceDataIntoDb();
@@ -58,5 +62,5 @@ public class ConsoleController {
     }
 
 
-    }
+}
 

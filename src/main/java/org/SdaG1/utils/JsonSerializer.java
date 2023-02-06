@@ -1,4 +1,4 @@
-package org.SdaG1.service;
+package org.SdaG1.utils;
 
 import com.google.gson.Gson;
 import okhttp3.Call;
@@ -10,13 +10,13 @@ import org.SdaG1.model.PeopleInSpaceData;
 
 import java.io.IOException;
 
-public class JsonSerializerService {
+public class JsonSerializer {
     private final String ISS_DATA_URL = "http://api.open-notify.org/iss-now.json";
     private final String PEOPLE_DATA_URL = "http://api.open-notify.org/astros.json";
 
     private Gson gson;
 
-    public JsonSerializerService() {
+    public JsonSerializer() {
         this.gson = new Gson();
     }
 
@@ -34,11 +34,11 @@ public class JsonSerializerService {
         return getApiCallResponse(url).body().string();
     }
 
-    public IssData issData() throws Exception {
+    public IssData getIssDataObjectFromJson() throws Exception {
         return gson.fromJson(retrieveJsonResponseFromUrl(ISS_DATA_URL), IssData.class);
     }
 
-    public PeopleInSpaceData peopleInSpaceData() throws Exception {
+    public PeopleInSpaceData getPeopleInSpaceDataObjectFromJson() throws Exception {
         return gson.fromJson(retrieveJsonResponseFromUrl(PEOPLE_DATA_URL), PeopleInSpaceData.class);
     }
 }

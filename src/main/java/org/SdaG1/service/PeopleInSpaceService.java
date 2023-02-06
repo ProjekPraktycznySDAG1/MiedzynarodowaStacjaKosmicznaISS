@@ -1,30 +1,36 @@
 package org.SdaG1.service;
 
 import org.SdaG1.model.People;
+import org.SdaG1.model.PeopleInSpaceData;
 import org.SdaG1.repository.PeopleDataRepository;
+import org.SdaG1.utils.JsonSerializer;
 
 import java.util.List;
 
 public class PeopleInSpaceService implements PeopleInSpaceInterface {
 
-    JsonSerializerService jsonSerializerService;
+    JsonSerializer jsonSerializerService;
     PeopleDataRepository peopleDataRepository;
     public PeopleInSpaceService(){
-        jsonSerializerService = new JsonSerializerService();
+        jsonSerializerService = new JsonSerializer();
         peopleDataRepository = new PeopleDataRepository();
     }
 
     public void savePeopleInSpaceDataIntoDb() throws Exception {
-        peopleDataRepository.save(jsonSerializerService.peopleInSpaceData());
+        peopleDataRepository.save(jsonSerializerService.getPeopleInSpaceDataObjectFromJson());
     }
 
     @Override
     public int getAmountOfPeopleInSpace() throws Exception {
-       return jsonSerializerService.peopleInSpaceData().getNumber();
+       return jsonSerializerService.getPeopleInSpaceDataObjectFromJson().getNumber();
     }
 
     @Override
     public List<People> showListOfPeopleInSpace() throws Exception {
-        return jsonSerializerService.peopleInSpaceData().getPeopleList();
+        return jsonSerializerService.getPeopleInSpaceDataObjectFromJson().getPeopleList();
+    }
+
+    public void checkIfPersonExistsInDb(PeopleInSpaceData person){
+        peopleDataRepository.getPersonByName(person);
     }
 }

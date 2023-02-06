@@ -9,6 +9,7 @@ public class People {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "people_id", nullable = false)
     private Long id;
+    @Column(unique = true)
     String name;
     String craft;
 

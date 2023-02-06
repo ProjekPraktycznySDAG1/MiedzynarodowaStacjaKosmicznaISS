@@ -13,6 +13,7 @@ public class PeopleInSpaceData {
     @Column(name = "people_data_id", nullable = false)
     private Integer id;
 
+    @Column(unique = true)
     private int number;
 
     @OneToMany(mappedBy = "peopleInSpaceData", cascade = CascadeType.ALL)

@@ -1,6 +1,7 @@
 package org.SdaG1.controller;
 
 import org.SdaG1.model.People;
+import org.SdaG1.service.IssDataService;
 import org.SdaG1.service.PeopleInSpaceService;
 
 import java.io.BufferedReader;
@@ -12,6 +13,7 @@ public class ConsoleController {
 
     boolean running = true;
     PeopleInSpaceService peopleInSpaceService = new PeopleInSpaceService();
+    IssDataService issDataService = new IssDataService();
 
     public void showMenuOptions() throws Exception {
 
@@ -30,10 +32,10 @@ public class ConsoleController {
 
             switch (choice) {
                 case 1:
-                 //   showCurrentIssLocation();
+                    System.out.println(issDataService.showCurrentIssLocation());
                     break;
                 case 2:
-                 //   calculateSpeed();
+                    System.out.println("Average speed for the last 5 seconds is: " + issDataService.calculateSpeed() + " km/h");
                     break;
                 case 3:
                     peopleInSpaceService.savePeopleInSpaceDataIntoDb();

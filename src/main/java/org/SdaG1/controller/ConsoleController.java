@@ -37,10 +37,7 @@ public class ConsoleController {
 
             switch (choice) {
                 case 1:
-
                     //   showCurrentIssLocation();
-
-
                     System.out.println(issDataService.showCurrentIssLocation());
                     break;
                 case 2:
